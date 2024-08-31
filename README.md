@@ -9,7 +9,7 @@ SUAI course about Cpp patterns and OOP
 | [Laboratory work №3](https://github.com/gr1shan1a/Cpp_programming-course/tree/main/lab3) |  92%  | Виртуальные функции   | `3/10`       | `2/10`       |
 | [Laboratory work №4](https://github.com/gr1shan1a/Cpp_programming-course/tree/main/lab4) | 100%  | Шаблоны               | `7/10`       | `8/10`       |
 
-ps. To be continued...
+ps. To be continued...(Labs 5-8 in progress)
 
 
 Materials: [link](https://pro.guap.ru/inside/student/materials/d5a46fdff874ecd09999f209598f8e8e/download)(for students)
