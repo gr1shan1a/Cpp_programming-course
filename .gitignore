@@ -1,7 +1,4 @@
-lab1/.idea
-lab2/.idea
-lab3/.idea
-lab4/.idea
+.idea
 cmake-build-debug
 *.o
 .DS_store
