@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 // Класс Книжный магазин хранит данные о книгах, учебниках, канцелярии.
 // - Для книг определено: Book
 //          название,
@@ -31,34 +33,77 @@
 // 4) полное восстановление из файла
 
 
-#include <iostream>
-#include "BaseClass.h"
-#include "Book.h"
-//#include "StudentsBook.h"
-#include "Chancellery.h"
+//#include <iostream>
+//#include "BaseClass.h"
+//#include "Book.h"
+////#include "StudentsBook.h"
+//#include "Chancellery.h"
 
 int main() {
-//    Keeper keeper;
-//
-//    keeper.add(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, "A novel set in the Roaring Twenties.",
-//                        "Fiction", 218, 10.99));
-//    keeper.add(new Textbook("Physics", "David Halliday", 2014, "University", 1, 1200, 59.99));
-//    keeper.add(new Stationery("Pen", "Blue", "Writing", 1.49));
-//
-//    std::cout << "All items in the keeper:" << std::endl;
-//    keeper.printAll();
-//
-//    keeper.saveToFile("items.txt");
-//
-//    keeper.remove(1);
-//
-//    std::cout << "After removing the second item:" << std::endl;
-//    keeper.printAll();
-//
-//    keeper.loadFromFile("items.txt");
-//
-//    std::cout << "After loading from file:" << std::endl;
-//    keeper.printAll();
+    int c;
+    do {
+        printf("==========================================\n");
+        printf("__________ПОЛЬЗОВАТЕЛЬСКОЕ МЕНЮ:__________\n");
+        printf(">> Введите '1' если вы хотите редактировать определенный набор\n");
+        printf(">> Введите '2' для сохранения keeper\n");
+        printf(">> Введите '3' для загрузки keeper из библиотеки имеющихся\n");
+        printf(">> Введите '-1' для выхода из программы\n");
+        cin >> c;
+        switch (c) {
+            case 1: {
+                int c1;
+                string keeper_name;
+                printf(">> Введите название keeper: ");
+                do {
+                    cin >> keeper_name;
+                    //keeper_name.exists()
+                    if (1) {
+//                    load();
+                        printf("keeper найден!\n\n");
+                        break;
+                    } else {
+                        printf("Ошибка: не найден keeper.\nПопробуйте снова или введите '0' чтобы вернуться назад\n");
+                    }
+                } while (keeper_name == "0");
+
+
+                do {
+                    printf(">> Введите '1' для добавления элемента\n");
+                    printf(">> Введите '2' для удаления элемента\n");
+                    printf(">> Введите '0' для удаления элемента\n");
+                    cin >> c1;
+                    switch (c1) {
+                        case 1: {
+
+//                        add();
+                        }
+                        case 2: {
+
+//                        del();
+
+
+                        };
+                        default:
+                            break;
+                    }
+                } while (c1 != 0);
+            }
+            case 2:
+//                save();
+            case 3: {
+                string name_keeper;
+                if (name_keeper.inFolder()) {
+                    printf("keeper найден\n");
+                    restore();
+                } else {
+                    printf("такого keeper не существует. Попробуйте снова\n");
+                }
+
+
+            }
+
+        }
+    } while (c != -1);
 
     return 0;
 }
