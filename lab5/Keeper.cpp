@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 
+using namespace std;
+
 Keeper::Keeper() : items(nullptr), size(0) {}
 
 Keeper::~Keeper() {
@@ -46,14 +48,14 @@ void Keeper::remove(int index) {
 void Keeper::printAll() const {
     for (int i = 0; i < size; ++i) {
         items[i]->printInfo();
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 
-void Keeper::saveToFile(const std::string& filename) const {
-    std::ofstream file(filename);
+void Keeper::saveToFile(const string& filename) const {
+    ofstream file(filename);
     if (!file) {
-        std::cerr << "Error opening file for writing!" << std::endl;
+        cerr << "Error opening file for writing!" << endl;
         return;
     }
 
@@ -64,9 +66,9 @@ void Keeper::saveToFile(const std::string& filename) const {
 }
 
 void Keeper::loadFromFile(const std::string& filename) {
-    std::ifstream file(filename);
+    ifstream file(filename);
     if (!file) {
-        std::cerr << "Error opening file for reading!" << std::endl;
+        cerr << "Error opening file for reading!" << endl;
         return;
     }
 
@@ -82,11 +84,11 @@ void Keeper::loadFromFile(const std::string& filename) {
     size = 0;
 
     for (int i = 0; i < newSize; ++i) {
-        std::string type;
-        std::getline(file, type);
+        string type;
+        getline(file, type);
 
         BaseClass *item = nullptr;
-        if (type == "book") {
+        if (type == "Book") {
             item = new book();
         } else if (type == "StudentsBook") {
             item = new StudentsBook();

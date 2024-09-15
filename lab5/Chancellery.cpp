@@ -1,22 +1,44 @@
 #include "Chancellery.h"
 #include <iostream>
 
-Chancellery::Chancellery(const std::string& type, const std::string& color, const std::string& purpose, double price)
-        : type(type), color(color), purpose(purpose), price(price) {}
+using namespace std;
+
+Chancellery::Chancellery(const string& Type, const string& color, const string& purpose, double price)
+        : Type(Type), color(color), purpose(purpose), price(price) {}
 
 void Chancellery::printInfo() const {
-    std::cout << "Chancellery: " << type << ", Color: " << color << ", Purpose: " << purpose
-              << ", Price: $" << price << std::endl;
+    cout << "Chancellery: " << Type << ", Color: " << color << ", Purpose: " << purpose
+              << ", Price: $" << price << endl;
 }
 
-void Chancellery::saveToFile(std::ofstream& file) const {
-    file << "Chancellery\n" << type << "\n" << color << "\n" << purpose << "\n" << price << "\n";
+void Chancellery::saveToFile(ofstream& file) const {
+    file << "Chancellery\n" << Type << "\n" << color << "\n" << purpose << "\n" << price << "\n";
 }
 
 void Chancellery::loadFromFile(std::ifstream& file) {
-    std::getline(file, type);
-    std::getline(file, color);
-    std::getline(file, purpose);
+    getline(file, Type);
+    getline(file, color);
+    getline(file, purpose);
     file >> price;
     file.ignore();
+}
+
+void Chancellery::addElement() {
+    cout << "Введите тип канцелярии: ";
+    getline(cin, Type);
+    printf("Введите цвет %s: ", Type.c_str());
+    getline(cin, color);
+    cout << "Введите название книги: ";
+    getline(cin, purpose);
+    cout << "Введите назначение: ";
+    cin >> price;
+    cin.ignore();
+}
+
+void Chancellery::deleteElement() {
+    Type = "";
+    color = "";
+    purpose = "";
+    price = 0.0;
+    cout << "Канцелярка удалена." << endl;
 }

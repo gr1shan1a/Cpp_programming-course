@@ -1,7 +1,3 @@
-#include <iostream>
-
-using namespace std;
-
 // Класс Книжный магазин хранит данные о книгах, учебниках, канцелярии.
 // - Для книг определено: Book
 //          название,
@@ -33,13 +29,16 @@ using namespace std;
 // 4) полное восстановление из файла
 
 
-//#include <iostream>
-//#include "BaseClass.h"
-//#include "Book.h"
-////#include "StudentsBook.h"
-//#include "Chancellery.h"
+#include <iostream>
+#include "BaseClass.h"
+#include "Book.h"
+#include "StudentsBook.h"
+#include "Chancellery.h"
+#include "Keeper.h"
+using namespace std;
 
 int main() {
+    Keeper keeper;
     int c;
     do {
         printf("==========================================\n");
@@ -52,56 +51,84 @@ int main() {
         switch (c) {
             case 1: {
                 int c1;
-                string keeper_name;
-                printf(">> Введите название keeper: ");
-                do {
-                    cin >> keeper_name;
-                    //keeper_name.exists()
-                    if (1) {
-//                    load();
-                        printf("keeper найден!\n\n");
-                        break;
-                    } else {
-                        printf("Ошибка: не найден keeper.\nПопробуйте снова или введите '0' чтобы вернуться назад\n");
-                    }
-                } while (keeper_name == "0");
-
-
                 do {
                     printf(">> Введите '1' для добавления элемента\n");
                     printf(">> Введите '2' для удаления элемента\n");
-                    printf(">> Введите '0' для удаления элемента\n");
+                    printf(">> Введите '0' для возврата в главное меню\n");
+
                     cin >> c1;
                     switch (c1) {
                         case 1: {
+                            int type;
+                            printf("Выберите тип объекта для добавления:\n");
+                            printf("Введите '1' - Книга\n");
+                            printf("Введите '2' - Учебник\n");
+                            printf("Введите '3' - Канцелярия\n");
+                            cin >> type;
+                            cin.ignore();  // Игнорировать символ новой строки
 
-//                        add();
+                            switch (type) {
+                                case 1: {
+                                    book *b = new book();
+                                    b->addElement();
+                                    keeper.add(b);
+                                    break;
+                                }
+                                case 2: {
+                                    StudentsBook *sb = new StudentsBook();
+                                    sb->addElement();
+                                    keeper.add(sb);
+                                    break;
+                                }
+                                case 3: {
+                                    Chancellery *ch = new Chancellery();
+                                    ch->addElement();
+                                    keeper.add(ch);
+                                    break;
+                                }
+                                default:
+                                    printf("Неверный выбор!\n");
+                                    break;
+                            }
+                            break;
                         }
                         case 2: {
-
-//                        del();
-
-
-                        };
+                            keeper.printAll();
+                            printf("Введите индекс элемента для удаления: ");
+                            int index;
+                            cin >> index;
+                            keeper.remove(index);
+                            break;
+                        }
+                        case 0:
+                            break;
                         default:
+                            printf("Неверный ввод! Попробуйте снова.\n");
                             break;
                     }
                 } while (c1 != 0);
+                break;
             }
-            case 2:
-//                save();
+            case 2: {
+                string filename;
+                printf("Введите имя файла для сохранения: ");
+                cin >> filename;
+                keeper.saveToFile(filename);
+                break;
+            }
             case 3: {
-                string name_keeper;
-                //name_keeper.inFolder()
-                if (1) {
-                    printf("keeper найден\n");
-//                    restore();
-                } else {
-                    printf("такого keeper не существует. Попробуйте снова\n");
-                }
-
-
+                string filename;
+                printf("Введите имя файла-keeper для загрузки: ");
+                cin >> filename;
+                keeper.loadFromFile(filename);
+                break;
             }
+            case -1:
+                printf("Выход из программы...\n");
+                break;
+            default:
+                printf("Неверный ввод! Попробуйте снова.\n");
+                break;
 
         }
     } while (c != -1);

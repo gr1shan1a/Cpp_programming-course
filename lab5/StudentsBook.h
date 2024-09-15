@@ -21,6 +21,9 @@ public:
     void printInfo() const override;
     void saveToFile(std::ofstream& file) const override;
     void loadFromFile(std::ifstream& file) override;
+
+    void addElement() override;
+    void deleteElement() override;
 };
 
 #endif // STUDENTSBOOK_H
