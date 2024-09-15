@@ -1,10 +1,22 @@
-#ifndef LAB5_KEPPER_H
-#define LAB5_KEPPER_H
+#ifndef KEEPER_H
+#define KEEPER_H
 
+#include "BaseClass.h"
 
-class Kepper {
+class Keeper {
+private:
+    BaseClass** items;
+    int size;
 
+public:
+    Keeper();
+    ~Keeper();
+
+    void add(BaseClass* item);
+    void remove(int index);
+    void printAll() const;
+    void saveToFile(const std::string& filename) const;
+    void loadFromFile(const std::string& filename);
 };
 
-
-#endif //LAB5_KEPPER_H
+#endif // KEEPER_H

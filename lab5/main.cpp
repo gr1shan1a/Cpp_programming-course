@@ -92,9 +92,10 @@ int main() {
 //                save();
             case 3: {
                 string name_keeper;
-                if (name_keeper.inFolder()) {
+                //name_keeper.inFolder()
+                if (1) {
                     printf("keeper найден\n");
-                    restore();
+//                    restore();
                 } else {
                     printf("такого keeper не существует. Попробуйте снова\n");
                 }

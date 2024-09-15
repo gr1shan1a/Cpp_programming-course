@@ -1,16 +1,18 @@
 #include "StudentsBook.h"
+#include <iostream>
+
 StudentsBook::StudentsBook(const std::string& title, const std::string& author, int year, const std::string& institution,
-                   int studyYear, int pages, double price)
+                           int studyYear, int pages, double price)
         : title(title), author(author), year(year), institution(institution), studyYear(studyYear), pages(pages), price(price) {}
 
 void StudentsBook::printInfo() const {
-    std::cout << "Textbook: " << title << ", Author: " << author << ", Year: " << year
+    std::cout << "StudentsBook: " << title << ", Author: " << author << ", Year: " << year
               << ", Institution: " << institution << ", Study Year: " << studyYear
               << ", Pages: " << pages << ", Price: $" << price << std::endl;
 }
 
 void StudentsBook::saveToFile(std::ofstream& file) const {
-    file << "Textbook\n" << title << "\n" << author << "\n" << year << "\n" << institution << "\n"
+    file << "StudentsBook\n" << title << "\n" << author << "\n" << year << "\n" << institution << "\n"
          << studyYear << "\n" << pages << "\n" << price << "\n";
 }
 

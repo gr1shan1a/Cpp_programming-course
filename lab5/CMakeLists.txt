@@ -3,4 +3,4 @@ project(lab5)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(lab5 main.cpp BaseClass.cpp Book.cpp Chancellery.cpp BookStore.cpp StudentsBook.cpp)
+add_executable(lab5 main.cpp Book.cpp Chancellery.cpp Keeper.cpp StudentsBook.cpp)
