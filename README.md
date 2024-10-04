@@ -11,5 +11,7 @@ SUAI course about Cpp patterns and OOP
 | [Laboratory work №5](https://github.com/gr1shan1a/Cpp_programming-course/tree/main/lab5) |   `%`   | Создание контейнера   | `6/10`       | `5/10`       |
 | [Laboratory work №6](https://github.com/gr1shan1a/Cpp_programming-course/tree/main/lab6) |   `%`   | Создание контейнера   | `10/10`       | `10/10`       |
 
+
+----
 6th to be done by 1st of November
 Materials: [link](https://pro.guap.ru/inside/student/materials/d5a46fdff874ecd09999f209598f8e8e/download)(for students)
