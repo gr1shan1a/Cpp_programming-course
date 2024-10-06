@@ -13,5 +13,5 @@ SUAI course about Cpp patterns and OOP
 
 
 ----
-6th to be done by 1st of November + ITMO course
+6th to be done by 1st of November + ITMO course(continuing daily streak) 
 Materials: [link](https://pro.guap.ru/inside/student/materials/d5a46fdff874ecd09999f209598f8e8e/download)(for students)
