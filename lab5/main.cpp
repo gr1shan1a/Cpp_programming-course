@@ -72,18 +72,21 @@ int main() {
                                     book *b = new book();
                                     b->addElement();
                                     keeper.add(b);
+                                    keeper.setSize();
                                     break;
                                 }
                                 case 2: {
                                     StudentsBook *sb = new StudentsBook();
                                     sb->addElement();
                                     keeper.add(sb);
+                                    keeper.setSize();
                                     break;
                                 }
                                 case 3: {
                                     Chancellery *ch = new Chancellery();
                                     ch->addElement();
                                     keeper.add(ch);
+                                    keeper.setSize();
                                     break;
                                 }
                                 default:
@@ -97,7 +100,13 @@ int main() {
                             printf("Введите индекс элемента для удаления: ");
                             int index;
                             cin >> index;
-                            keeper.remove(index);
+                            if (index >= 0 && index < keeper.getSize()) {
+                                keeper.remove(index);
+                            } else {
+                                std::cout << "Такого индекса нет" << std::endl;
+                            }
+
+
                             break;
                         }
                         case 0:

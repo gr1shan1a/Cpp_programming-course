@@ -17,6 +17,14 @@ public:
     void printAll() const;
     void saveToFile(const std::string& filename) const;
     void loadFromFile(const std::string& filename);
+
+    int getSize() const {
+        return size;
+    }
+
+    int setSize() {
+        return size++;
+    }
 };
 
 #endif // KEEPER_H
