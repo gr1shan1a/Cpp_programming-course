@@ -4,7 +4,7 @@
 #include "BaseClass.h"
 #include <string>
 
-class book : public BaseClass {
+class Book : public BaseClass {
 private:
     std::string title;
     std::string author;
@@ -15,16 +15,16 @@ private:
     double price;
 
 public:
-    book(const std::string& title = "", const std::string& author = "", int year = 0,
-         const std::string& annotation = "", const std::string& genre = "",
-         int pages = 0, double price = 0.0);
+    Book() = default;
+    Book(const std::string& title, const std::string& author, int year, const std::string& annotation,
+         const std::string& genre, int pages, double price);
 
     void printInfo() const override;
     void saveToFile(std::ofstream& file) const override;
     void loadFromFile(std::ifstream& file) override;
-
     void addElement() override;
     void deleteElement() override;
+    void edit() override;
 };
 
 #endif // BOOK_H

@@ -89,7 +89,7 @@ void Keeper::loadFromFile(const std::string& filename) {
 
         BaseClass *item = nullptr;
         if (type == "Book") {
-            item = new book();
+            item = new Book();
         } else if (type == "StudentsBook") {
             item = new StudentsBook();
         } else if (type == "Chancellery") {
@@ -100,5 +100,14 @@ void Keeper::loadFromFile(const std::string& filename) {
             item->loadFromFile(file);
             add(item);
         }
+    }
+}
+
+void Keeper::edit(int index) {
+    if (index >= 0 && index < size) {
+        BaseClass* item = items[index];
+        item->edit();
+    } else {
+        std::cout << "Такого индекса нет" << std::endl;
     }
 }

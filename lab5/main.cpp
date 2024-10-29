@@ -54,6 +54,7 @@ int main() {
                 do {
                     printf(">> Введите '1' для добавления элемента\n");
                     printf(">> Введите '2' для удаления элемента\n");
+                    printf(">> Введите '3' для изменения определенного элемента\n");
                     printf(">> Введите '0' для возврата в главное меню\n");
 
                     cin >> c1;
@@ -69,24 +70,24 @@ int main() {
 
                             switch (type) {
                                 case 1: {
-                                    book *b = new book();
+                                    Book *b = new Book();
                                     b->addElement();
                                     keeper.add(b);
-                                    keeper.setSize();
+//                                    keeper.setSize();
                                     break;
                                 }
                                 case 2: {
                                     StudentsBook *sb = new StudentsBook();
                                     sb->addElement();
                                     keeper.add(sb);
-                                    keeper.setSize();
+//                                    keeper.setSize();
                                     break;
                                 }
                                 case 3: {
                                     Chancellery *ch = new Chancellery();
                                     ch->addElement();
                                     keeper.add(ch);
-                                    keeper.setSize();
+//                                    keeper.setSize();
                                     break;
                                 }
                                 default:
@@ -100,15 +101,26 @@ int main() {
                             printf("Введите индекс элемента для удаления: ");
                             int index;
                             cin >> index;
-                            if (index >= 0 && index < keeper.getSize()) {
-                                keeper.remove(index);
-                            } else {
-                                std::cout << "Такого индекса нет" << std::endl;
-                            }
+//                            if (index >= 0 && index < keeper.getSize()) {
+//                                keeper.remove(index);
+//                            } else {
+//                                std::cout << "Такого индекса нет" << std::endl;
+//                            }
+                            keeper.remove(index);
 
 
                             break;
                         }
+
+                        case 3: {
+                            keeper.printAll();
+                            printf("Введите индекс элемента для изменения: ");
+                            int index;
+                            cin >> index;
+                            keeper.edit(index);
+                            break;
+                        }
+
                         case 0:
                             break;
                         default:

@@ -6,20 +6,21 @@
 
 class Chancellery : public BaseClass {
 private:
-    std::string Type;
+    std::string type;
     std::string color;
     std::string purpose;
     double price;
 
 public:
-    Chancellery(const std::string& Type = "", const std::string& color = "", const std::string& purpose = "", double price = 0.0);
+    Chancellery() = default;
+    Chancellery(const std::string& type, const std::string& color, const std::string& purpose, double price);
 
     void printInfo() const override;
     void saveToFile(std::ofstream& file) const override;
     void loadFromFile(std::ifstream& file) override;
-
     void addElement() override;
     void deleteElement() override;
+    void edit() override;
 };
 
 #endif // CHANCELLERY_H

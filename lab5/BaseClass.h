@@ -12,6 +12,7 @@ public:
 
     virtual void addElement() = 0;
     virtual void deleteElement() = 0;
+    virtual void edit() = 0;
 
     virtual ~BaseClass() = default;
 };
