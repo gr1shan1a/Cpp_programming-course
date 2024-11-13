@@ -3,7 +3,7 @@
 using namespace std;
 
 void extractQuotes(const string& filename) {
-    ifstream file(filename);
+    ifstream file("/Users/macbook/CLionProjects/Cpp_programming-course/lab6/Resources/" + filename);
     if (!file.is_open()) {
         cerr << "Error opening file: " << filename << endl;
         return;
@@ -12,6 +12,7 @@ void extractQuotes(const string& filename) {
     string line;
     bool insideQuotes = false;
     string quote;
+    int cnt = 0;
 
     while (getline(file, line)) {
         istringstream iss(line);
@@ -25,7 +26,8 @@ void extractQuotes(const string& filename) {
                 } else {
                     insideQuotes = false;
                     quote += word.substr(0, word.find('"'));
-                    cout << quote << endl;
+                    cnt++;
+                    cout << cnt << ". " << quote << endl;
                     quote.clear();
                 }
             } else if (insideQuotes) {
