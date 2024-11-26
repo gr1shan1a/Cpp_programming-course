@@ -1,28 +1,23 @@
 #include "../Classes/Train.h"
 
-// Конструктор по умолчанию
 Train::Train() : dest("Unknown"), number(0), time("Unknown") {
     std::cout << ":Default constructor called for Train" << std::endl;
 }
 
-// Конструктор с параметрами
 Train::Train(const std::string& dest, int number, const std::string& time)
         : dest(dest), number(number), time(time) {
     std::cout << ":Parameterized constructor called for Train" << std::endl;
 }
 
-// Конструктор копирования
 Train::Train(const Train& other)
         : dest(other.dest), number(other.number), time(other.time) {
     std::cout << ":Copy constructor called for Train" << std::endl;
 }
 
-// Деструктор
 Train::~Train() {
     std::cout << ":Destructor called for Train" << std::endl;
 }
 
-// Методы доступа
 std::string Train::getDestination() const { return dest; }
 int Train::getTrainNumber() const { return number; }
 std::string Train::getDepartureTime() const { return time; }
@@ -48,13 +43,12 @@ void Train::setTime(const std::string& time) {
     this->time = time;
 }
 
-// Перегрузка оператора >>
+// Перегрузка >>
 std::istream& operator>>(std::istream& in, Train& train) {
     in >> train.dest >> train.number >> train.time;
     return in;
 }
 
-// Перегрузка оператора <<
 std::ostream& operator<<(std::ostream& out, const Train& train) {
     out << "Destination: " << train.dest
         << ", Train Number: " << train.number
