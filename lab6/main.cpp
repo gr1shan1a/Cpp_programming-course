@@ -18,38 +18,48 @@ int main() {
     switch (choice) {
         case 1: {
             cout << "Now we are working with train" << endl;
-            vector<Train> trains;
-            int n;
-            cout << "Enter the number of trains: ";
-            cin >> n;
+            try {
+                vector<Train> trains;
+                int n;
+                cout << "Enter the number of trains: ";
+                cin >> n;
 
-            for (int i = 0; i < n; ++i) {
-                string dest, time;
-                int number;
-                cout << "Enter destination, train number, and departure time: ";
-                cin >> dest >> number >> time;
-                trains.emplace_back(dest, number, time);
-            }
-
-            // Сортировка по времени отправления
-            sort(trains.begin(), trains.end(), compareByDepartureTime);
-
-            string searchDestination;
-            cout << "Enter the destination to search for: ";
-            cin >> searchDestination;
-
-            bool found = false;
-            for (const auto& train : trains) {
-                if (train.getDestination() == searchDestination) {
-                    cout << train;
-                    found = true;
+                for (int i = 0; i < n; ++i) {
+                    string dest, time;
+                    int number;
+                    cout << "Enter destination, train number, and departure time: ";
+                    cin >> dest >> number >> time;
+                    trains.emplace_back(dest, number, time);
                 }
-            }
 
-            if (!found) {
-                cout << "No trains found for the destination: " << searchDestination << endl;
+                // Сортировка по времени отправления
+                sort(trains.begin(), trains.end(), compareByDepartureTime);
+
+                // Вывод отсортированного списка поездов
+                cout << "\n\nSorted trains by departure time:" << endl;
+                for (const auto& train : trains) {
+                    cout << train;
+                }
+                cout << "\n\n";
+
+                string searchDestination;
+                cout << "Enter the destination to search for: ";
+                cin >> searchDestination;
+
+                bool found = false;
+                for (const auto &train: trains) {
+                    if (train.getDestination() == searchDestination) {
+                        cout << train;
+                        found = true;
+                    }
+                }
+
+                if (!found) {
+                    cout << "No trains found for the destination: " << searchDestination << endl;
+                }
+            } catch (const invalid_argument &e) {
+                cerr << "Exception: " << e.what() << endl;
             }
-            break;
         }
         case 2: {
             cout << "Now we are working with quotes" << endl;
@@ -60,9 +70,11 @@ int main() {
             extractQuotes(filename);
             break;
         }
-        default:
+        default: {
             cout << "Invalid choice" << endl;
             break;
+        }
+        cin >> choice;
     }
 
     return 0;

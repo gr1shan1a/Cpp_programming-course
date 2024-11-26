@@ -1,11 +1,25 @@
 #include "../Classes/Train.h"
 
-// Конструктор
-Train::Train(const std::string& dest, int number, const std::string& time)
-        : dest(dest), number(number), time(time) {}
+// Конструктор по умолчанию
+Train::Train() : dest("Unknown"), number(0), time("Unknown") {
+    std::cout << ":Default constructor called for Train" << std::endl;
+}
 
+// Конструктор с параметрами
+Train::Train(const std::string& dest, int number, const std::string& time)
+        : dest(dest), number(number), time(time) {
+    std::cout << ":Parameterized constructor called for Train" << std::endl;
+}
+
+// Конструктор копирования
+Train::Train(const Train& other)
+        : dest(other.dest), number(other.number), time(other.time) {
+    std::cout << ":Copy constructor called for Train" << std::endl;
+}
+
+// Деструктор
 Train::~Train() {
-    std::cout << "TRAIN destructor called" << std::endl;
+    std::cout << ":Destructor called for Train" << std::endl;
 }
 
 // Методы доступа
@@ -14,15 +28,24 @@ int Train::getTrainNumber() const { return number; }
 std::string Train::getDepartureTime() const { return time; }
 
 void Train::setDest(const std::string& dest) {
-    Train::dest = dest;
+    if (dest.empty()) {
+        throw std::invalid_argument("Err:Destination cannot be empty");
+    }
+    this->dest = dest;
 }
 
 void Train::setNumber(int number) {
-    Train::number = number;
+    if (number <= 0) {
+        throw std::invalid_argument("Err:Train number must be positive");
+    }
+    this->number = number;
 }
 
 void Train::setTime(const std::string& time) {
-    Train::time = time;
+    if (time.empty()) {
+        throw std::invalid_argument("Err:Departure time cannot be empty");
+    }
+    this->time = time;
 }
 
 // Перегрузка оператора >>
@@ -37,4 +60,15 @@ std::ostream& operator<<(std::ostream& out, const Train& train) {
         << ", Train Number: " << train.number
         << ", Departure Time: " << train.time << std::endl;
     return out;
+}
+
+// Оператор присваивания
+Train& Train::operator=(const Train& other) {
+    if (this != &other) {
+        dest = other.dest;
+        number = other.number;
+        time = other.time;
+    }
+    std::cout << "Assignment operator called for Train" << std::endl;
+    return *this;
 }
