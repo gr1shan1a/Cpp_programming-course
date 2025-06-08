@@ -15,4 +15,4 @@ SUAI course about Cpp patterns and OOP
 ----
 Materials: [link](https://pro.guap.ru/inside/student/materials/d5a46fdff874ecd09999f209598f8e8e/download)(for students)
 
-двыдвдывдв
+updates for backend academy
